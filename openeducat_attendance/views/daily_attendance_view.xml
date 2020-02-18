@@ -1,0 +1,59 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+
+    <record model="ir.ui.view" id="sheet_list">
+      <field name="name">sheet List</field>
+      <field name="model">attendance.sheet</field>
+      <field name="arch" type="xml">
+            <tree string="Daily Attendance">
+              <field name="name"/>
+              <field name="enrollment"/>
+              <field name="class_type"/>
+              <field name="active"/>
+              <field name="absent"/>
+              <field name="date"/>
+            </tree>
+      </field>
+    </record>
+
+    <record id="sheet_form" model="ir.ui.view">
+        <field name="name">sheet Form</field>
+        <field name="model">attendance.sheet</field>
+        <field name="arch" type="xml">
+        <form string="Daily Attendance">
+            <sheet>
+                <group col="2" string="Details">
+                        <group>
+                            <field name="name" placeholder="Student Name"/>
+                            <field name="enrollment"/>
+                            <field name="class_type"/>
+                            <field name="active"/>
+                            <field name="absent"/>
+                        </group>
+                        <group>
+                            <field name="section"/>
+                            <field name="period"/>
+                            <field name="date"/>
+                        </group>
+                </group> 
+            </sheet>
+        </form>
+        </field>
+    </record>
+
+
+    <!-- actions opening views on models -->
+    
+    <record model="ir.actions.act_window" id="sheet_action_window">
+      <field name="name">sheet</field>
+      <field name="res_model">attendance.sheet</field>
+      <field name="view_ids" eval="[(5, 0, 0), 
+        (0, 0, {'view_mode': 'tree', 'view_id': ref('sheet_list')}),
+        (0, 0, {'view_mode': 'form', 'view_id': ref('sheet_form')})
+        ]"/>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+  </data>
+</odoo>
