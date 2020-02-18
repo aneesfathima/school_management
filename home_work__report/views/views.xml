@@ -1,0 +1,19 @@
+<odoo>
+  <data>
+
+    <!-- Top menu item -->
+    
+    <menuitem name="Home Work Report" id="home_work__report.menu_root" web_icon="home_work__report/static/description/icon.png"/>
+    
+    <!-- menu categories -->
+    
+    <menuitem name="Home Work Report" id="home_work" parent="home_work__report.menu_root"/>
+    
+    <!-- actions -->
+    
+    <menuitem name="Home Work Report" id="home_work_list" parent="home_work"
+              action="home_work_action_window"/>
+
+    
+  </data>
+</odoo>
