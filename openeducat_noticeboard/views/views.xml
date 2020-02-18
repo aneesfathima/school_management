@@ -1,0 +1,19 @@
+<odoo>
+  <data>
+
+    <!-- Top menu item -->
+    
+    <menuitem name="Notice Board" id="noticeboard"/>
+    
+    <!-- menu categories -->
+    
+    <menuitem name="Notice Board" id="notice_board" parent="noticeboard"/>
+    
+    <!-- actions -->
+    
+    <menuitem name="Notice Board" id="noticeboard_list" parent="notice_board"
+              action="noticeboard_action_window"/>
+
+    
+  </data>
+</odoo>

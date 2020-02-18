@@ -1,0 +1,49 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+
+    <record model="ir.ui.view" id="noticeboard_list">
+      <field name="name">noticeboard List</field>
+      <field name="model">openeducat_noticeboard.noticeboard</field>
+      <field name="arch" type="xml">
+            <tree string="Notice Board Details">
+              <field name="title"/>
+              <field name="content"/>
+              <field name="time"/>
+            </tree>
+      </field>
+    </record>
+
+    <record id="noticeboard_form" model="ir.ui.view">
+        <field name="name">noticeboard Form </field>
+        <field name="model">openeducat_noticeboard.noticeboard</field>
+        <field name="arch" type="xml">
+        <form string="Notice Board Details">
+                    <sheet>
+                    <group col="2" string="Notice Board Details">
+                        <group>
+                            <field name="title"/>
+                            <field name="content" placeholder="Add Details"/>
+                            <field name="time"/>
+                        </group>
+                    </group>
+                    </sheet>
+        </form>
+        </field>
+    </record>
+
+
+    <!-- actions opening views on models -->
+    
+    <record model="ir.actions.act_window" id="noticeboard_action_window">
+      <field name="name">Notice Board</field>
+      <field name="res_model">openeducat_noticeboard.noticeboard</field>
+      <field name="view_ids" eval="[(5, 0, 0), 
+        (0, 0, {'view_mode': 'tree', 'view_id': ref('noticeboard_list')}),
+        (0, 0, {'view_mode': 'form', 'view_id': ref('noticeboard_form')})
+        ]"/>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+  </data>
+</odoo>
